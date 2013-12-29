@@ -1,0 +1,53 @@
+Metadata-Version: 1.1
+Name: iMX233_GPIO
+Version: 0.1.0
+Summary: Control GPIOs on iMX233-OLinuXino.
+Home-page: https://www.olimex.com/
+Author: Stefan Mavrodiev
+Author-email: support@olimex.com
+License: MIT
+Description: This package provides class to control the GPIO on iMX233-OLinuXino.
+        Current release does no support any peripheral functions.
+        
+        Example
+        =======
+        
+        Typical usage::
+            
+            #!/usr/bin/env python
+        
+            import iMX233_GPIO as GPIO
+        
+            #init module
+            GPIO.init()
+            
+            #configure module
+            GPIO.setinput(GPIO.PIN#)
+            GPIO.setoutput(GPIO.PIN#)
+            
+            #set GPIO high
+            GPIO.output(GPIO.PIN#, 1)
+            
+            #set GPIO low
+            GPIO.output(GPIO.PIN#, 0)
+            
+            #read input
+            state = GPIO.input(GPIO.PIN#)
+            
+        Changelog
+        ===================================
+            * pyiMX233 0.1.0 (2013-04-22)
+                * Initial release
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Home Automation
+Classifier: Topic :: Software Development :: Embedded Systems

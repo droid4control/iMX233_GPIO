@@ -198,11 +198,12 @@ PyMODINIT_FUNC initiMX233_GPIO(void) {
 	PyModule_AddObject(module, "PIN16", Py_BuildValue("i", 7));
 	PyModule_AddObject(module, "PIN17", Py_BuildValue("i", 8));
 	PyModule_AddObject(module, "PIN18", Py_BuildValue("i", 9));
-	PyModule_AddObject(module, "PIN24", Py_BuildValue("i", 10));
-	PyModule_AddObject(module, "PIN25", Py_BuildValue("i", 11));
-	PyModule_AddObject(module, "PIN26", Py_BuildValue("i", 12));
-	PyModule_AddObject(module, "PIN27", Py_BuildValue("i", 13));
-	PyModule_AddObject(module, "PIN28", Py_BuildValue("i", 14));
-	PyModule_AddObject(module, "PIN29", Py_BuildValue("i", 15));
-	PyModule_AddObject(module, "PIN31", Py_BuildValue("i", 16));
+	PyModule_AddObject(module, "PIN23", Py_BuildValue("i", 10));
+	PyModule_AddObject(module, "PIN24", Py_BuildValue("i", 11));
+	PyModule_AddObject(module, "PIN25", Py_BuildValue("i", 12));
+	PyModule_AddObject(module, "PIN26", Py_BuildValue("i", 13));
+	PyModule_AddObject(module, "PIN27", Py_BuildValue("i", 14));
+	PyModule_AddObject(module, "PIN28", Py_BuildValue("i", 15));
+	PyModule_AddObject(module, "PIN29", Py_BuildValue("i", 16));
+	PyModule_AddObject(module, "PIN31", Py_BuildValue("i", 17));
 }

@@ -64,7 +64,8 @@ struct _gpio pins[] = {
 	{1, 28, "PIN27"},
 	{0, 25, "PIN28"},
 	{0, 23, "PIN29"},
-	{2, 27, "PIN31"}
+	{2, 27, "PIN31"},
+	{2, 1, "LED"}
 };
 
 int *gpio_mmap = 0;
@@ -199,6 +200,7 @@ PyMODINIT_FUNC PyInit_iMX233_GPIO(void) {
 	PyModule_AddObject(module, "PIN28", Py_BuildValue("i", 15));
 	PyModule_AddObject(module, "PIN29", Py_BuildValue("i", 16));
 	PyModule_AddObject(module, "PIN31", Py_BuildValue("i", 17));
+	PyModule_AddObject(module, "LED", Py_BuildValue("i", 18));
 
 	return module;
 }

@@ -172,7 +172,7 @@ PyMethodDef module_methods[] = {
     {"input", py_input, METH_VARARGS, "Get input state"},
     {NULL, NULL, 0, NULL}
 };
-#if PY_MAJOR_VERSION >= 3
+
 static struct PyModuleDef module_def = {
     PyModuleDef_HEAD_INIT,
     "iMX233 module",
@@ -180,24 +180,14 @@ static struct PyModuleDef module_def = {
     -1,
     module_methods
 };
-#endif
+
 PyMODINIT_FUNC initiMX233_GPIO(void) {
     PyObject* module = NULL;
 
-
-#if PY_MAJOR_VERSION >= 3
     module = PyModule_Create(&module_methods);
-#else
-    module = Py_InitModule("iMX233_GPIO", module_methods);
-#endif
-
 
     if(module == NULL)
-#if PY_MAJOR_VERSION >= 3
         return module;
-#else
-        return;
-#endif
 
     SetupException = PyErr_NewException("pyiMX233.SetupException", NULL, NULL);
     PyModule_AddObject(module, "SetupException", SetupException);

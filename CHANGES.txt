@@ -1,5 +1,11 @@
 Changelog
 ===================================
+    * 2014-01-01
+        * Python 3 module setup fixed
+        * Python 2 support is removed right now
+        * LED pin added
+        * PIN numbering fixed
+
     * pyiMX233 0.1.0 (2013-04-22)
         * Initial release
 

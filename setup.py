@@ -3,7 +3,7 @@ from distutils.core import setup, Extension
 
 setup(
     name                = 'iMX233_GPIO',
-    version             = '0.1.0',
+    version             = '0.1.1',
     author              = 'Stefan Mavrodiev',
     author_email        = 'support@olimex.com',
     url                 = 'https://www.olimex.com/',

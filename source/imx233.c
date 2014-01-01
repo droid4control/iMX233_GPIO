@@ -69,7 +69,7 @@ struct _gpio pins[] = {
 
 int *gpio_mmap = 0;
 
-int *gpio_map() {
+void gpio_map(void) {
 	int fd;
 
 	if (gpio_mmap != NULL)
@@ -96,9 +96,8 @@ void gpio_input(int bank, int pin) {
 	gpio_mmap[0x1C2 + (bank*4)] = 1 << pin;
 }
 
-static int module_setup(void) {
+static void module_setup(void) {
 	gpio_map();
-	Py_RETURN_NONE;
 }
 
 static PyObject* py_setoutput(PyObject* self, PyObject* args) {
@@ -149,19 +148,11 @@ static PyObject* py_input(PyObject* self, PyObject* args) {
 	return Py_BuildValue("i", result);
 }
 
-static PyObject* py_init(PyObject* self, PyObject* args) {
-
-	module_setup();
-
-	Py_RETURN_NONE;
-}
-
 PyMethodDef module_methods[] = {
-	{"init", py_init, METH_NOARGS, "Initialize module"},
-	{"setinput", py_setinput, METH_VARARGS, "Set input directions."},
-	{"setoutput", py_setoutput, METH_VARARGS, "Set output directions."},
-	{"output", py_output, METH_VARARGS, "Set output state"},
-	{"input", py_input, METH_VARARGS, "Get input state"},
+	{"setinput", (PyCFunction)py_setinput, METH_VARARGS, "Set input directions."},
+	{"setoutput", (PyCFunction)py_setoutput, METH_VARARGS, "Set output directions."},
+	{"output", (PyCFunction)py_output, METH_VARARGS, "Set output state"},
+	{"input", (PyCFunction)py_input, METH_VARARGS, "Get input state"},
 	{NULL, NULL, 0, NULL}
 };
 
@@ -173,10 +164,12 @@ static struct PyModuleDef module_def = {
 	module_methods
 };
 
-PyMODINIT_FUNC initiMX233_GPIO(void) {
+PyMODINIT_FUNC PyInit_iMX233_GPIO(void) {
 	PyObject* module = NULL;
 
-	module = PyModule_Create(&module_methods);
+	module_setup();
+
+	module = PyModule_Create(&module_def);
 
 	if(module == NULL)
 		return module;
@@ -206,4 +199,6 @@ PyMODINIT_FUNC initiMX233_GPIO(void) {
 	PyModule_AddObject(module, "PIN28", Py_BuildValue("i", 15));
 	PyModule_AddObject(module, "PIN29", Py_BuildValue("i", 16));
 	PyModule_AddObject(module, "PIN31", Py_BuildValue("i", 17));
+
+	return module;
 }

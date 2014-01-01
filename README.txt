@@ -10,9 +10,6 @@ Typical usage::
 
     import iMX233_GPIO as GPIO
 
-    #init module
-    GPIO.init()
-    
     #configure module
     GPIO.setinput(GPIO.PIN#)
     GPIO.setoutput(GPIO.PIN#)

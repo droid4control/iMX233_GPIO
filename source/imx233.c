@@ -92,14 +92,6 @@ int *gpio_map() {
 
 }
 
-int gpio_rd(long offset) {
-	return gpio_mmap[offset/4];
-}
-
-void gpio_wr(long offset, long value) {
-	gpio_mmap[offset/4] = value;
-}
-
 void gpio_output(int bank, int pin) {
 	gpio_mmap[0x1C1 + (bank*4)] = 1 << pin;
 }

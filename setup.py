@@ -9,7 +9,7 @@ setup(
     url                 = 'https://www.olimex.com/',
     license             = 'MIT',
     description         = 'Control GPIOs on iMX233-OLinuXino.',
-    long_description    = open('README.txt').read() + open('CHANGES.txt').read(),
+    long_description    = open('README.md').read() + open('CHANGES.txt').read(),
     classifiers         = [ 'Development Status :: 3 - Alpha',
                             'Environment :: Console',
                             'Intended Audience :: Developers',
